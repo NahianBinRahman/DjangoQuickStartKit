@@ -1,0 +1,17 @@
+# Python virtual environment
+venv/
+
+# SQLite database
+db.sqlite3
+
+# Node modules
+node_modules/
+
+# Package lock files
+package-lock.json
+
+# Other common ignores
+__pycache__/
+*.pyc
+.DS_Store
+.env

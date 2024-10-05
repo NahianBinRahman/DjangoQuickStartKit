@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import dj_database_url
 from pathlib import Path
 import os
 from dotenv import load_dotenv
@@ -86,17 +87,27 @@ WSGI_APPLICATION = 'fci.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+# #       'NAME': 'fcidb',           # The name of your PostgreSQL database
+#        'USER': 'nahian',         # The PostgreSQL user
+#        'PASSWORD': 'n526971911*1',  # Replace with the password for the 'nahian' user
+#        # Set to 'localhost' if PostgreSQL is running on the same machine
+#        'HOST': 'localhost',
+#        'PORT': '5432',           # Default port for PostgreSQL
+#    }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'fcidb',           # The name of your PostgreSQL database
-        'USER': 'nahian',         # The PostgreSQL user
-        'PASSWORD': 'n526971911*1',  # Replace with the password for the 'nahian' user
-        # Set to 'localhost' if PostgreSQL is running on the same machine
-        'HOST': 'localhost',
-        'PORT': '5432',           # Default port for PostgreSQL
-    }
+    "default": dj_database_url.parse(os.environ.get("DATABASE_URL", "postgresql://default_user:default_password@localhost:5432/default_db"))
 }
+
+# Ensure you have set DATABASE_URL in your environment
+DATABASE_URL = os.environ.get("DATABASE_URL")
+
+if not DATABASE_URL:
+    raise ValueError("DATABASE_URL environment variable not set.")
 
 
 # Password validation
@@ -134,6 +145,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+MEDIA_URL = 'media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
