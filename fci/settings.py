@@ -27,7 +27,7 @@ load_dotenv()  # take environment variables from .env.
 SECRET_KEY = 'django-insecure-cprk!g&l9ktml@=1-p@%6(jv7!u$ma@&hc#2o^sq^w^k(_uiwy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'nahianbd.onrender.com',
@@ -149,8 +149,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 MEDIA_URL = 'media/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # This is where collected files will go
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
