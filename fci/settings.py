@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-cprk!g&l9ktml@=1-p@%6(jv7!u$ma@&hc#2o^sq^w^k(_uiwy
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'engrnahian.onrender.com',
+    'nahianbd.onrender.com',
     'localhost',
     '127.0.0.1',
     # Add any other hostnames you want to allow
