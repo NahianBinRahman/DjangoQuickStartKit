@@ -27,13 +27,10 @@ load_dotenv()  # take environment variables from .env.
 SECRET_KEY = 'django-insecure-cprk!g&l9ktml@=1-p@%6(jv7!u$ma@&hc#2o^sq^w^k(_uiwy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
-    'nahianbd.onrender.com',
-    'localhost',
-    '127.0.0.1',
-    # Add any other hostnames you want to allow
+
 ]
 
 
@@ -88,31 +85,21 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'fci.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
-# DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql',
-# #       'NAME': 'fcidb',           # The name of your PostgreSQL database
-#        'USER': 'nahian',         # The PostgreSQL user
-#        'PASSWORD': 'n526971911*1',  # Replace with the password for the 'nahian' user
-#        # Set to 'localhost' if PostgreSQL is running on the same machine
-#        'HOST': 'localhost',
-#        'PORT': '5432',           # Default port for PostgreSQL
-#    }
-# }
-
+"""
 DATABASES = {
-    "default": dj_database_url.parse(os.environ.get("DATABASE_URL", "postgresql://default_user:default_password@localhost:5432/default_db"))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'fcidb',                # The name of your database
+        'USER': 'nahian',               # Your PostgreSQL username
+        'PASSWORD': 'n526971911*1',     # The password you set for the user
+        'HOST': 'localhost',            # Assuming your database is on the same machine
+        'PORT': '5432',                 # Default PostgreSQL port
+    }
 }
-
-# Ensure you have set DATABASE_URL in your environment
-DATABASE_URL = os.environ.get("DATABASE_URL")
-
-if not DATABASE_URL:
-    raise ValueError("DATABASE_URL environment variable not set.")
+"""
+DATABASES = {
+    "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}
 
 
 # Password validation

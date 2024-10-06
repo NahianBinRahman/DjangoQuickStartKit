@@ -1,5 +1,6 @@
 # myapp/views.py
 from django.shortcuts import render
+from .models import Member
 
 
 def home(request):
@@ -7,7 +8,8 @@ def home(request):
 
 
 def about(request):
-    return render(request, 'about.html')
+    members = Member.objects.all()  # Fetch all members from the database
+    return render(request, 'about.html', {'members': members})
 
 
 def contact(request):
