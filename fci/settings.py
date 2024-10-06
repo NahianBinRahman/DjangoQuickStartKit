@@ -27,10 +27,12 @@ load_dotenv()  # take environment variables from .env.
 SECRET_KEY = 'django-insecure-cprk!g&l9ktml@=1-p@%6(jv7!u$ma@&hc#2o^sq^w^k(_uiwy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-
+    'djangoquickstartkit.onrender.com',  # Add your Render domain here
+    'localhost',                          # For local development
+    '127.0.0.1',                         # For local development
 ]
 
 
